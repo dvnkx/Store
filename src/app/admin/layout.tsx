@@ -1,4 +1,5 @@
 import { Nav, NavLink } from "@/components/Nav";
+import { routes } from "@/keys";
 import { Metadata } from "next/types";
 
 export const dynamic = "force-dynamic";
@@ -18,8 +19,8 @@ const AdminLayout = ({
   return (
     <>
       <Nav>
-        <NavLink href="/admin">Dashboard</NavLink>
-        <NavLink href="/products">Products</NavLink>
+        <NavLink href={routes.ADMIN}>Dashboard</NavLink>
+        <NavLink href={routes.PRODUCTS}>Products</NavLink>
         <NavLink href="/customers">Customers</NavLink>
         <NavLink href="/sales">Sales</NavLink>
       </Nav>

@@ -5,7 +5,7 @@ import {
   getSalesData,
   getUserData,
   getProductData,
-} from "./_actions/dashboardActions";
+} from "./_actions/dashboard.actions";
 
 const AdminDashboard = async () => {
   const [salesData, userData, productData] = await Promise.all([
