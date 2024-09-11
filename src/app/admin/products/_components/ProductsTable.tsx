@@ -22,6 +22,7 @@ import Link from "next/link";
 
 import React, { ReactNode } from "react";
 import { ActiveToggleDropdownItem, DeleteDropdownItem } from "./ProductActions";
+import { routes } from "@/keys";
 
 const TableHeadSpan = ({ children }: { children: ReactNode }) => {
   return (
@@ -92,13 +93,15 @@ const ProductsTable = async () => {
                     <DropdownMenuItem asChild>
                       <a
                         download
-                        href={`/admin/products/${product.id}/download`}
+                        href={`${routes.PRODUCTS}/${product.id}${routes.DOWNLOAD}`}
                       >
                         Download
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href={`/admin/products/${product.id}/edit`}>
+                      <Link
+                        href={`${routes.PRODUCTS}/${product.id}${routes.EDIT}`}
+                      >
                         Edit
                       </Link>
                     </DropdownMenuItem>

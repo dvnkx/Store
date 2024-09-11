@@ -12,3 +12,8 @@ export const productSchema = z.object({
   file: fileSchema.refine((file) => file.size > 0, "File required!"),
   image: imageSchema.refine((file) => file.size > 0, "Image required!"),
 });
+
+export const editSchema = productSchema.extend({
+  file: fileSchema.optional(),
+  image: imageSchema.optional(),
+});

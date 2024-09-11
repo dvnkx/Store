@@ -5,4 +5,6 @@ export const enum routes {
   PRODUCTS = "/admin/products",
 
   NEW_PRODUCT = "/admin/products/new",
+  DOWNLOAD = "/download",
+  EDIT = "/edit",
 }
