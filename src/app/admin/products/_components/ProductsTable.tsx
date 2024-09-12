@@ -93,14 +93,14 @@ const ProductsTable = async () => {
                     <DropdownMenuItem asChild>
                       <a
                         download
-                        href={`${routes.PRODUCTS}/${product.id}${routes.DOWNLOAD}`}
+                        href={`${routes.ADMIN_PRODUCTS}/${product.id}${routes.DOWNLOAD}`}
                       >
                         Download
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link
-                        href={`${routes.PRODUCTS}/${product.id}${routes.EDIT}`}
+                        href={`${routes.ADMIN_PRODUCTS}/${product.id}${routes.EDIT}`}
                       >
                         Edit
                       </Link>
