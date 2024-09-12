@@ -20,9 +20,9 @@ const AdminLayout = ({
     <>
       <Nav>
         <NavLink href={routes.ADMIN}>Dashboard</NavLink>
-        <NavLink href={routes.ADMIN_PRODUCTS}>Products</NavLink>
-        <NavLink href={routes.ADMIN_CUSTOMERS}>Customers</NavLink>
-        <NavLink href={routes.ADMIN_SALES}>Sales</NavLink>
+        <NavLink href={routes.PRODUCTS}>Products</NavLink>
+        <NavLink href="/customers">Customers</NavLink>
+        <NavLink href="/sales">Sales</NavLink>
       </Nav>
       <div className="container m-6">{children}</div>
     </>
