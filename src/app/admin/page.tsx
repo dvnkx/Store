@@ -6,6 +6,7 @@ import {
   getUserData,
   getProductData,
 } from "./_actions/dashboard.actions";
+import Grid from "@/components/Grid";
 
 const AdminDashboard = async () => {
   const [salesData, userData, productData] = await Promise.all([
@@ -15,7 +16,7 @@ const AdminDashboard = async () => {
   ]);
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <Grid>
       <DashboardCard
         title="Sales"
         subtitle={`${formatNumber(salesData.numberOfSales)} Orders`}
@@ -33,7 +34,7 @@ const AdminDashboard = async () => {
         subtitle={`${formatNumber(productData.inactiveCount)} Inactive`}
         body={`${formatNumber(productData.activeCount)}`}
       />
-    </section>
+    </Grid>
   );
 };
 

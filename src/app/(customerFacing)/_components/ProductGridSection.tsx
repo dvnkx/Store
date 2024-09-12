@@ -1,10 +1,12 @@
-import { ProductCard, ProductCardSkeleton } from "@/components/ProductCard";
+import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { routes } from "@/keys";
 import { Product } from "@prisma/client";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import React, { Suspense } from "react";
+import React from "react";
+import SkeletonSuspense from "./SkeletonSuspense";
+import Grid from "@/components/Grid";
 
 type ProductGridSectionProps = {
   title: string;
@@ -26,15 +28,11 @@ const ProductGridSection = ({
           </Link>
         </Button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <Suspense
-          fallback={Array.of(1, 1, 1).map((_, index) => {
-            return <ProductCardSkeleton key={index} />;
-          })}
-        >
+      <Grid>
+        <SkeletonSuspense>
           <ProductFetcher productsFetcher={productsFetcher} />
-        </Suspense>
-      </div>
+        </SkeletonSuspense>
+      </Grid>
     </div>
   );
 };
