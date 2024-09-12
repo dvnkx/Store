@@ -4,13 +4,14 @@ import SkeletonSuspense from "../_components/SkeletonSuspense";
 import Grid from "@/components/Grid";
 import db from "@/db/db";
 import { ProductCard } from "@/components/ProductCard";
+import { cache } from "@/lib/cache";
 
-const getProducts = () => {
+const getProducts = cache(() => {
   return db.product.findMany({
     where: { isAvailableForPurchase: true },
     orderBy: { name: "asc" },
   });
-};
+}, ["/products", "getProducts"]);
 
 export const metadata: Metadata = {
   title: "Store | Products",
