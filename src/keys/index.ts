@@ -5,6 +5,7 @@ export const enum routes {
   ORDERS = "/orders",
 
   PURCHASE = "/purchase",
+  PURCHASE_SUCCESS = "/stripe/purchase-success",
 
   ADMIN = "/admin",
   ADMIN_PRODUCTS = "/admin/products",
@@ -13,5 +14,6 @@ export const enum routes {
 
   NEW_PRODUCT = "/admin/products/new",
   DOWNLOAD = "/download",
+  DOWNLOAD_EXPIRES = "/products/download/expired",
   EDIT = "/edit",
 }
