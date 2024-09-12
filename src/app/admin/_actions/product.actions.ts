@@ -37,10 +37,10 @@ export const addProduct = async (_: unknown, formData: FormData) => {
       imagePath,
     },
   });
+  revalidatePath(routes.HOME);
+  revalidatePath(routes.ADMIN_PRODUCTS);
 
-  revalidatePath(routes.PRODUCTS);
-
-  redirect(routes.PRODUCTS);
+  redirect(routes.ADMIN_PRODUCTS);
 };
 
 export const updateProduct = async (
@@ -83,10 +83,10 @@ export const updateProduct = async (
       imagePath,
     },
   });
+  revalidatePath(routes.HOME);
+  revalidatePath(routes.ADMIN_PRODUCTS);
 
-  revalidatePath(routes.PRODUCTS);
-
-  redirect(routes.PRODUCTS);
+  redirect(routes.ADMIN_PRODUCTS);
 };
 
 export const toggleProductAvalibylity = async (
@@ -98,7 +98,8 @@ export const toggleProductAvalibylity = async (
     data: { isAvailableForPurchase },
   });
 
-  revalidatePath(routes.PRODUCTS);
+  revalidatePath(routes.HOME);
+  revalidatePath(routes.ADMIN_PRODUCTS);
 };
 
 export const deleteProduct = async (id: string) => {
@@ -109,5 +110,6 @@ export const deleteProduct = async (id: string) => {
   await fs.unlink(product.filePath);
   await fs.unlink(`public${product.imagePath}`);
 
-  revalidatePath(routes.PRODUCTS);
+  revalidatePath(routes.HOME);
+  revalidatePath(routes.ADMIN_PRODUCTS);
 };
