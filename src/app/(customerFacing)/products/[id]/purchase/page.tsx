@@ -1,11 +1,9 @@
 import { notFound } from "next/navigation";
 import React from "react";
-import Stripe from "stripe";
 import CheckoutForm from "./_components/CheckoutForm";
 import { getProduct } from "../../_actions/product.action";
 import { Metadata } from "next/types";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+import { stripe } from "@/keys";
 
 export const metadata: Metadata = {
   title: "Store | Purchase",

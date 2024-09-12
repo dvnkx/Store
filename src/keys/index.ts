@@ -1,3 +1,5 @@
+import Stripe from "stripe";
+
 export const enum routes {
   HOME = "/",
 
@@ -17,3 +19,5 @@ export const enum routes {
   DOWNLOAD_EXPIRES = "/products/download/expired",
   EDIT = "/edit",
 }
+
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);

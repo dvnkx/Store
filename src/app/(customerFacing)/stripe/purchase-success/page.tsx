@@ -1,16 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { routes } from "@/keys";
+import { routes, stripe } from "@/keys";
 import { formatCurrency } from "@/lib/formatters";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
-import Stripe from "stripe";
 import { getProduct } from "../../products/_actions/product.action";
 import { createDownloadVerification } from "../../products/_actions/downloadVerification.action";
 import { Metadata } from "next/types";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export const metadata: Metadata = {
   title: "Store | Purchase | Status",
