@@ -11,7 +11,7 @@ export const enum routes {
 
   ADMIN = "/admin",
   ADMIN_PRODUCTS = "/admin/products",
-  ADMIN_CUSTOMERS = "/admin/customers",
+  ADMIN_CUSTOMERS = "/admin/users",
   ADMIN_SALES = "/admin/sales",
 
   NEW_PRODUCT = "/admin/products/new",

@@ -21,8 +21,9 @@ import { CheckCircle2, MoreVertical, XCircle } from "lucide-react";
 import Link from "next/link";
 
 import React, { ReactNode } from "react";
-import { ActiveToggleDropdownItem, DeleteDropdownItem } from "./ProductActions";
+import { ActiveToggleDropdownItem } from "./ProductActions";
 import { routes } from "@/keys";
+import { DeleteDropdownItem } from "../../_components/DeleteDropdownItem";
 
 const TableHeadSpan = ({ children }: { children: ReactNode }) => {
   return (
@@ -113,6 +114,7 @@ const ProductsTable = async () => {
                     <DeleteDropdownItem
                       id={product.id}
                       disabled={product._count.orders > 0}
+                      type="product"
                     />
                   </DropdownMenuContent>
                 </DropdownMenu>

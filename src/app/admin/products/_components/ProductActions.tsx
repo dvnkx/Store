@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useTransition } from "react";
-import {
-  deleteProduct,
-  toggleProductAvalibylity,
-} from "../../_actions/product.actions";
+import { toggleProductAvalibylity } from "../../_actions/product.actions";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
 type ActiveToggleDropdownItemProps = {
@@ -30,34 +27,6 @@ export const ActiveToggleDropdownItem = ({
       onClick={handleUpdatePurchaseAvalibylity}
     >
       {isAvailableForPurchase ? "Deactivate" : "Activate"}
-    </DropdownMenuItem>
-  );
-};
-
-type DeleteDropdownItemProps = {
-  id: string;
-  disabled: boolean;
-};
-
-export const DeleteDropdownItem = ({
-  id,
-  disabled,
-}: DeleteDropdownItemProps) => {
-  const [isPending, startTransition] = useTransition();
-
-  const handleDelete = () => {
-    startTransition(async () => {
-      await deleteProduct(id);
-    });
-  };
-
-  return (
-    <DropdownMenuItem
-      variant="destructive"
-      disabled={isPending || disabled}
-      onClick={handleDelete}
-    >
-      Delete
     </DropdownMenuItem>
   );
 };
