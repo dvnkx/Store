@@ -1,10 +1,10 @@
 import db from "@/db/db";
 import { notFound } from "next/navigation";
-import { NextRequest, NextResponse } from "next/server";
-import fs from "fs/promises";
+import { NextRequest } from "next/server";
+import { getFileDetails } from "@/app/_actions/file.action";
 
 export async function GET(
-  req: NextRequest,
+  _: NextRequest,
   { params: { id } }: { params: { id: string } }
 ) {
   const product = await db.product.findUnique({
@@ -14,14 +14,5 @@ export async function GET(
 
   if (product == null) return notFound();
 
-  const { size } = await fs.stat(product.filePath);
-  const file = await fs.readFile(product.filePath);
-  const extension = product.filePath.split(".").pop();
-
-  return new NextResponse(file, {
-    headers: {
-      "Content-Disposition": `attachment; filename="${product.name}.${extension}"`,
-      "Content-Length": size.toString(),
-    },
-  });
+  return getFileDetails(product);
 }

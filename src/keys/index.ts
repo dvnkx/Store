@@ -1,3 +1,5 @@
+import Stripe from "stripe";
+
 export const enum routes {
   HOME = "/",
 
@@ -5,13 +7,17 @@ export const enum routes {
   ORDERS = "/orders",
 
   PURCHASE = "/purchase",
+  PURCHASE_SUCCESS = "/stripe/purchase-success",
 
   ADMIN = "/admin",
   ADMIN_PRODUCTS = "/admin/products",
-  ADMIN_CUSTOMERS = "/admin/customers",
-  ADMIN_SALES = "/admin/sales",
+  ADMIN_CUSTOMERS = "/admin/users",
+  ADMIN_SALES = "/admin/orders",
 
   NEW_PRODUCT = "/admin/products/new",
   DOWNLOAD = "/download",
+  DOWNLOAD_EXPIRES = "/products/download/expired",
   EDIT = "/edit",
 }
+
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);

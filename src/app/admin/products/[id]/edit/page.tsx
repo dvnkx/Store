@@ -1,8 +1,8 @@
-import PageHeader from "@/app/admin/_components/PageHeader";
 import React from "react";
 import ProductForm from "../../_components/ProductForm";
 import db from "@/db/db";
 import { Metadata } from "next/types";
+import PageHeader from "@/app/admin/_components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Admin | Edit | Store",

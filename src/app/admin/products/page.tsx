@@ -1,9 +1,10 @@
 import React from "react";
-import PageHeader from "../_components/PageHeader";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { routes } from "@/keys";
 import ProductsTable from "./_components/ProductsTable";
+import PageHeader from "../_components/PageHeader";
 
 const AdminProductsPage = () => {
   return (

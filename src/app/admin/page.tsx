@@ -1,12 +1,12 @@
 import { formatCurrency, formatNumber } from "@/lib/formatters";
 import React from "react";
-import DashboardCard from "./_components/DashboardCard";
 import {
   getSalesData,
   getUserData,
   getProductData,
 } from "./_actions/dashboard.actions";
 import Grid from "@/components/Grid";
+import DashboardCard from "./_components/DashboardCard";
 
 const AdminDashboard = async () => {
   const [salesData, userData, productData] = await Promise.all([
