@@ -1,5 +1,3 @@
-"use server";
-
 import db from "@/db/db";
 import { routes } from "@/keys";
 import { revalidatePath } from "next/cache";

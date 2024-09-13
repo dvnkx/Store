@@ -60,7 +60,7 @@ export const POST = async (req: NextRequest) => {
           </h3>
           <p className="text-sm">
             Thank you for ordering. Our team will contact you soon for more
-            details. Have a good day!s🥹
+            details. Have a good day!🥹
           </p>
         </div>
       ),

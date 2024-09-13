@@ -1,20 +1,19 @@
 import React from "react";
-import PageHeader from "../../_components/PageHeader";
+
 import ProductForm from "../_components/ProductForm";
 import { Metadata } from "next/types";
+import PageHeader from "../../_components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Admin | Add | Store",
   description: "Store Add Features",
 };
 
-const NewProductPage = () => {
-  return (
-    <>
-      <PageHeader>Add Product</PageHeader>
-      <ProductForm />
-    </>
-  );
-};
+const NewProductPage = () => (
+  <>
+    <PageHeader>Add Product</PageHeader>
+    <ProductForm />
+  </>
+);
 
 export default NewProductPage;

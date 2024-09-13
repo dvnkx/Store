@@ -5,11 +5,12 @@ import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { useTransition } from "react";
 import { deleteProduct } from "../_actions/product.actions";
 import { deleteUser } from "../_actions/users.actions";
+import { deleteOrder } from "../_actions/orders.actions";
 
 type DeleteDropdownItemProps = {
   id: string;
   disabled?: boolean;
-  type: "product" | "user";
+  type: "product" | "user" | "order";
 };
 
 export const DeleteDropdownItem = ({
@@ -21,8 +22,21 @@ export const DeleteDropdownItem = ({
 
   const handleDelete = () => {
     startTransition(async () => {
-      {
-        type === "product" ? deleteProduct(id) : deleteUser(id);
+      switch (type) {
+        case "product": {
+          await deleteProduct(id);
+          break;
+        }
+        case "user": {
+          await deleteUser(id);
+          break;
+        }
+        case "order": {
+          await deleteOrder(id);
+          break;
+        }
+        default:
+          throw new Error("Unknown type");
       }
     });
   };
