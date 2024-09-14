@@ -4,6 +4,7 @@ import Stripe from "stripe";
 import { Resend } from "resend";
 import { formatCurrency } from "@/lib/formatters";
 import { getProduct } from "@/app/(customerFacing)/products/_actions/product.action";
+import PurchaseReceipt from "@/email/PurchaseReceipt";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const resend = new Resend(process.env.RESEND_API_KEY as string);
@@ -51,18 +52,11 @@ export const POST = async (req: NextRequest) => {
       to: email,
       subject: "Order Confirmation",
       react: (
-        <div className="flex flex-col m-2">
-          <h2 className="text-2xl font-bold">
-            You has been purchase: {product.name}
-          </h2>
-          <h3 className="text-lg font-mono">
-            {formatCurrency(product.priceInCents / 100)}
-          </h3>
-          <p className="text-sm">
-            Thank you for ordering. Our team will contact you soon for more
-            details. Have a good day!🥹
-          </p>
-        </div>
+        <PurchaseReceipt
+          product={product}
+          order={order}
+          downloadVerificationId={downloadVerification.id}
+        />
       ),
     });
   }
