@@ -98,7 +98,7 @@ const Form = ({ priceInCents, productId }: FormProps) => {
       .confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${process.env.NEXT_PUBLIC_STRIPE_KEY}${routes.PURCHASE_SUCCESS}`,
+          return_url: `${process.env.NEXT_PUBLIC_SERVER_URL}${routes.PURCHASE_SUCCESS}`,
         },
       })
       .then(({ error }) => {
