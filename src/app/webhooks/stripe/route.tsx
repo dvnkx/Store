@@ -2,7 +2,6 @@ import db from "@/db/db";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { Resend } from "resend";
-import { formatCurrency } from "@/lib/formatters";
 import { getProduct } from "@/app/(customerFacing)/products/_actions/product.action";
 import PurchaseReceipt from "@/email/PurchaseReceipt";
 

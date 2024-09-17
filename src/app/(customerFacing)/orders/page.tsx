@@ -35,7 +35,11 @@ const OrdersPage = () => {
           </div>
         </CardContent>
         <CardFooter>
-          {data.message ? <p>{data.message}</p> : <SubmitButton />}
+          {data.message ? (
+            <p className="text-green-700">{data.message}</p>
+          ) : (
+            <SubmitButton />
+          )}
         </CardFooter>
       </Card>
     </form>
